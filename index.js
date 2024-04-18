@@ -18,7 +18,7 @@ router.use("/users", userRoutes);
 router.use("/auth", authRoutes);
 router.use("/posts", postRoutes);
 router.use(errorHandler);
-const mongo_url = "mongodb://localhost:27017/dbconnect";
+const mongo_url = "mongodb://localhost:27017";
 mongoose
   .connect(mongo_url)
   .then(() =>
