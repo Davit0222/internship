@@ -4,7 +4,6 @@ export const errorHandler = (err, req, res, next) => {
 
   res.json({
     message: err.message,
-    // Stack trace should not be returned in production
-    stack: process.env.NODE_ENV === 'production' ? '🥞' : err.stack,
+    stack: process.env.NODE_ENV === "production" ? "🥞" : err.stack,
   });
 };

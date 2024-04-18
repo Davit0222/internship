@@ -3,11 +3,11 @@ import Post from "../models/Post-model.js";
 class PostController {
   static async createPost(req, res) {
     try {
-      const { title, content } = req.body; // Destructure directly if you use specific fields
+      const { title, content } = req.body;
       const post = new Post({
         title,
         content,
-        author: req.user._id, // Assuming author's ID is stored in request by auth middleware
+        author: req.user._id,
       });
       await post.save();
       res.status(201).send(post);
@@ -30,7 +30,7 @@ class PostController {
 
   static async updatePost(req, res) {
     try {
-      const { title, content } = req.body; // Assume that posts might be updated with these fields
+      const { title, content } = req.body;
       const post = await Post.findByIdAndUpdate(
         req.params.id,
         { title, content },

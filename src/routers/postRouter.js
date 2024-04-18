@@ -9,18 +9,4 @@ router.get("/:id", authMiddleware, PostController.getPost);
 router.put("/:id", authMiddleware, PostController.updatePost);
 router.delete("/:id", authMiddleware, PostController.deletePost);
 
-/////////sranic nerqevna nora
-// import {
-//   createPost,
-//   getPost,
-//   updatePost,
-//   deletePost,
-// } from "../controllers/post-Controller.js";
-
-//////////
-// router.post("/", authMiddleware, createPost);
-// router.get("/:id", authMiddleware, getPost);
-// router.put("/:id", authMiddleware, updatePost);
-// router.delete("/:id", authMiddleware, deletePost);
-
 export default router;
