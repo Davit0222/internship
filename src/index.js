@@ -9,7 +9,8 @@ import { errorHandler } from "./exceptions/errorHandler.js";
 const router = express.Router();
 router.use(express.json());
 const app = express();
-const swaggerDocument = YAML.load("./api-docs.yml");
+
+const swaggerDocument = YAML.load("./src/api-docs.yaml");
 app.use(router);
 router.use("/users", userRoutes);
 router.use("/auth", authRoutes);
