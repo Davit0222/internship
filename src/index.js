@@ -1,7 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
-import swaggerUi from "swagger-ui-express";
-import YAML from "yamljs";
+//import swaggerUi from "swagger-ui-express";
+//import YAML from "yamljs";
 import userRoutes from "./routers/userRouter.js";
 import authRoutes from "./routers/authRouter.js";
 import postRoutes from "./routers/postRouter.js";
@@ -15,7 +15,7 @@ app.use(router);
 router.use("/users", userRoutes);
 router.use("/auth", authRoutes);
 router.use("/posts", postRoutes);
-router.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+//router.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 router.use(errorHandler);
 const mongo_url = "mongodb://localhost:27017/dbconnect";
 mongoose
