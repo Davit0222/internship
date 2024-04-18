@@ -4,11 +4,15 @@ import userRoutes from "./routers/userRouter.js";
 import authRoutes from "./routers/authRouter.js";
 import postRoutes from "./routers/postRouter.js";
 import { errorHandler } from "./exceptions/errorHandler.js";
+import swaggerUi from "swagger-ui-express";
+import YAML from "yamljs";
 const router = express.Router();
 router.use(express.json());
 const app = express();
 
 const swaggerDocument = YAML.load("./src/api-docs.yaml");
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
 app.use(router);
 router.use("/users", userRoutes);
 router.use("/auth", authRoutes);
