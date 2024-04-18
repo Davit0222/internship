@@ -1,9 +1,9 @@
 import express from "express";
 import mongoose from "mongoose";
-import userRoutes from "./routers/userRouter.js";
-import authRoutes from "./routers/authRouter.js";
-import postRoutes from "./routers/postRouter.js";
-import { errorHandler } from "./exceptions/errorHandler.js";
+import userRoutes from "./src/routers/userRouter.js";
+import authRoutes from "./src/routers/authRouter.js";
+import postRoutes from "./src/routers/postRouter.js";
+import { errorHandler } from "./src/exceptions/errorHandler.js";
 import swaggerUi from "swagger-ui-express";
 import YAML from "yamljs";
 const router = express.Router();
