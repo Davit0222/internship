@@ -1,0 +1,115 @@
+swagger: "2.0"
+info:
+  version: "1.0.0"
+  title: User Management API
+  description: API for managing user data
+host: "localhost:3000"
+basePath: "/"
+schemes:
+  - http
+paths:
+  /users:
+    post:
+      summary: Create a new user
+      description: Adds a new user to the database
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: user
+          description: The user to create
+          schema:
+            type: object
+            required:
+              - username
+              - email
+              - password
+            properties:
+              username:
+                type: string
+              email:
+                type: string
+              password:
+                type: string
+      responses:
+        201:
+          description: User created successfully
+        400:
+          description: Error in request
+  /users/{id}:
+    get:
+      summary: Retrieve a user
+      description: Retrieves a user by user ID
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: id
+          type: string
+          required: true
+          description: Unique identifier of the user
+      responses:
+        200:
+          description: User found and returned
+          schema:
+            $ref: "#/definitions/User"
+        404:
+          description: User not found
+    put:
+      summary: Update a user
+      description: Updates user data by ID
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: id
+          type: string
+          required: true
+          description: Unique identifier of the user
+        - in: body
+          name: user
+          description: User data to update
+          schema:
+            type: object
+            properties:
+              username:
+                type: string
+              email:
+                type: string
+              password:
+                type: string
+      responses:
+        200:
+          description: User updated successfully
+        404:
+          description: User not found
+    delete:
+      summary: Delete a user
+      description: Deletes a user by ID
+      parameters:
+        - in: path
+          name: id
+          type: string
+          required: true
+          description: Unique identifier of the user
+      responses:
+        204:
+          description: User deleted successfully
+        404:
+          description: User not found
+definitions:
+  User:
+    type: object
+    properties:
+      id:
+        type: string
+      username:
+        type: string
+      email:
+        type: string
+      password:
+        type: string
